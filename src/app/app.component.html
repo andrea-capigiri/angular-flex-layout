@@ -41,6 +41,15 @@
                 <input matInput placeholder="fxLayoutGap" type="number" value="0" [(ngModel)]="this.fxLayoutGap">
             </mat-form-field>
         </div>
+        <div fxLayout="row"
+             fxLayoutAlign="space-between center">
+            <button mat-button
+                    [disabled]="this.cardList.length == 2"
+                    (click)="this.removeBox()">Remove Box</button>
+            <button mat-button
+                    [disabled]="this.cardList.length == 19"
+                    (click)="this.addBox()">Add Box</button>
+        </div>
 
         <div class="sandbox"
              *ngIf="this.fxLayout"

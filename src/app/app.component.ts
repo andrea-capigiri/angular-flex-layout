@@ -26,7 +26,14 @@ export class AppComponent {
 
     public fxLayoutValue() { return (this.fxLayout || '') + (this.fxLayoutWrap ? ' ' + this.fxLayoutWrap : ''); }
     public fxLayoutAlignValue() { return (this.fxLayoutAlignHorizontal || '') + (this.fxLayoutAlignVertical ? ' ' + this.fxLayoutAlignVertical : ''); }
-    public fxLayoutGapValue() { return (this.fxLayoutGap || 0) + 'px'; }
+
+    public addBox() {
+        let i = this.cardList.length + 1;
+        let tmp = new SandboxCardViewModel();
+        tmp.index = i;
+        this.cardList.push(tmp);
+    }
+    public removeBox() { this.cardList.pop(); }
 
     public onSelectCard($event: number) {
         console.log('You have selected: ' + $event);
