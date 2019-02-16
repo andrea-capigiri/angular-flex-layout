@@ -26,6 +26,7 @@ export class AppComponent {
 
     public fxLayoutValue() { return (this.fxLayout || '') + (this.fxLayoutWrap ? ' ' + this.fxLayoutWrap : ''); }
     public fxLayoutAlignValue() { return (this.fxLayoutAlignHorizontal || '') + (this.fxLayoutAlignVertical ? ' ' + this.fxLayoutAlignVertical : ''); }
+    public fxLayoutGapValue() { return (this.fxLayoutGap || 0) + 'px'; }
 
     public addBox() {
         let i = this.cardList.length + 1;
