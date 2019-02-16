@@ -1,0 +1,12 @@
+<div class="app-sandbox-card"
+     *ngIf="this.viewModel"
+     fxLayout="row"
+     fxLayoutAlign="center center"
+     [ngStyle]="{ 'background-color': this.backgroundColor() }"
+     [ngClass]="{ 'selected': this.viewModel.selected }"
+     (click)="this.onSelect.emit(this.viewModel.index)"
+     [fxFlex]="this.viewModel.fxFlex">
+    <div>
+        {{ this.viewModel.index }}
+    </div>
+</div>

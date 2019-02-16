@@ -1,0 +1,88 @@
+<div style="margin:24px;">
+    <mat-card>
+
+        <div fxLayout="row wrap"
+             fxLayoutAlign="space-between center"
+             fxLayoutGap="12px">
+            <mat-form-field fxFlex>
+                <mat-select placeholder="fxLayout" [(ngModel)]="this.fxLayout">
+                    <mat-option value="row">row</mat-option>
+                    <mat-option value="column">column</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+                <mat-select placeholder="fxLayoutWrap" [(ngModel)]="this.fxLayoutWrap">
+                    <mat-option value="">none</mat-option>
+                    <mat-option value="wrap">wrap</mat-option>
+                </mat-select>
+                <mat-error>Collapse the window to see the effect</mat-error>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+                <mat-select placeholder="Horizontal align" [(ngModel)]="this.fxLayoutAlignHorizontal">
+                    <mat-option value="">none</mat-option>
+                    <mat-option value="start">start (Default)</mat-option>
+                    <mat-option value="center">center</mat-option>
+                    <mat-option value="end">end</mat-option>
+                    <mat-option value="space-around">space-around</mat-option>
+                    <mat-option value="space-between">space-between</mat-option>
+                    <mat-option value="space-evenly">space-evenly</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+                <mat-select placeholder="Vertical align" [(ngModel)]="this.fxLayoutAlignVertical">
+                    <mat-option value="">none</mat-option>
+                    <mat-option value="start">start</mat-option>
+                    <mat-option value="center">center</mat-option>
+                    <mat-option value="end">end</mat-option>
+                    <mat-option value="stretch">stretch (Default)</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <mat-form-field fxFlex>
+                <input matInput placeholder="fxLayoutGap" type="number" value="0" [(ngModel)]="this.fxLayoutGap">
+            </mat-form-field>
+        </div>
+
+        <div class="sandbox"
+             *ngIf="this.fxLayout"
+             [fxLayout]="this.fxLayoutValue()"
+             [fxLayoutAlign]="this.fxLayoutAlignValue()"
+             [fxLayoutGap]="this.fxLayoutGapValue()">
+            <app-sandbox-card *ngFor="let $card of this.cardList"
+                              [viewModel]="$card"
+                              (onSelect)="this.onSelectCard($event)">
+            </app-sandbox-card>
+        </div>
+
+        <!--<mat-card style="margin:24px 0;" *ngIf="this.card">
+            <mat-form-field>
+                <mat-select placeholder="fxFlex" [(ngModel)]="this.card.fxFlex">
+                    <mat-option value="grow">grow</mat-option>
+                    <mat-option value="initial">initial</mat-option>
+                    <mat-option value="auto">auto</mat-option>
+                    <mat-option value="none">none</mat-option>
+                    <mat-option value="nogrow">nogrow</mat-option>
+                    <mat-option value="noshrink">noshrink</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </mat-card>-->
+
+        <small>
+            <pre>&lt;div fxLayout="{{ this.fxLayoutValue() }}"
+     fxLayoutAlign="{{ this.fxLayoutAlignValue() }}"
+     fxLayoutGap="{{ this.fxLayoutGapValue() }}"&gt;</pre>
+
+            <!--<span *ngIf="this.card">
+                <pre>&lt;div fxLayout="{{ this.fxLayoutValue() }}"
+                fxLayoutAlign="{{ this.fxLayoutAlignValue() }}"
+                fxLayoutGap="{{ this.fxLayoutGapValue() }}"&gt;</pre>
+                <pre>&lt;/div&gt;</pre>
+            </span>-->
+
+            <pre>&lt;/div&gt;</pre>
+        </small>
+
+    </mat-card>
+    <div style="text-align:center; margin-top:24px;">
+        <a href="https://andreacapigiri.com"><em>andreacapigiri.com</em></a>
+    </div>
+</div>
