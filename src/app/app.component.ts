@@ -9,7 +9,7 @@ import { SandboxCardViewModel } from './shared/sandbox-card.model';
 export class AppComponent {
 
     public fxLayout: string = 'row';
-    public fxLayoutWrap: string = 'wrap';
+    public fxLayoutWrap: string = '';
     public fxLayoutAlignHorizontal: string = 'center';
     public fxLayoutAlignVertical: string = 'center';
     public fxLayoutGap: number = 0;
