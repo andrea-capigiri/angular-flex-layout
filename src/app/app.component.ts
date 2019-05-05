@@ -29,7 +29,7 @@ export class AppComponent {
     public fxLayoutGapValue() { return (this.fxLayoutGap || 0) + 'px'; }
 
     public addBox() {
-        let i = this.cardList.length + 1;
+        let i = this.cardList.length;
         let tmp = new SandboxCardViewModel();
         tmp.index = i;
         this.cardList.push(tmp);
