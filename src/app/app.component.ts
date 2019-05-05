@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { SandboxCardViewModel } from './shared/sandbox-card.model';
 
 @Component({
@@ -6,7 +6,7 @@ import { SandboxCardViewModel } from './shared/sandbox-card.model';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
     public fxLayout: string = 'row';
     public fxLayoutWrap: string = '';
@@ -15,23 +15,21 @@ export class AppComponent {
     public fxLayoutGap: number = 0;
 
     public card: SandboxCardViewModel = null;
-    public cardList: SandboxCardViewModel[] = [
-        <SandboxCardViewModel>{ index: 0 },
-        <SandboxCardViewModel>{ index: 1 },
-        <SandboxCardViewModel>{ index: 2 },
-        <SandboxCardViewModel>{ index: 3 },
-        <SandboxCardViewModel>{ index: 4 },
-        <SandboxCardViewModel>{ index: 5 },
-    ];
+    public cardList: SandboxCardViewModel[] = [];
+
+    public ngOnInit() {
+        for (let i = 0; i < 5; i++)
+            this.addBox();
+    }
 
     public fxLayoutValue() { return (this.fxLayout || '') + (this.fxLayoutWrap ? ' ' + this.fxLayoutWrap : ''); }
     public fxLayoutAlignValue() { return (this.fxLayoutAlignHorizontal || '') + (this.fxLayoutAlignVertical ? ' ' + this.fxLayoutAlignVertical : ''); }
     public fxLayoutGapValue() { return (this.fxLayoutGap || 0) + 'px'; }
 
     public addBox() {
-        let i = this.cardList.length;
         let tmp = new SandboxCardViewModel();
-        tmp.index = i;
+        tmp.index = this.cardList.length;
+        tmp.size = Math.floor(Math.random() * 160) + 80;
         this.cardList.push(tmp);
     }
     public removeBox() { this.cardList.pop(); }

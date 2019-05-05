@@ -44,7 +44,7 @@
         <div fxLayout="row"
              fxLayoutAlign="space-between center">
             <button mat-button
-                    [disabled]="this.cardList.length == 1"
+                    [disabled]="this.cardList.length == 0"
                     (click)="this.removeBox()">Remove Box</button>
             <button mat-button
                     [disabled]="this.cardList.length == 20"
