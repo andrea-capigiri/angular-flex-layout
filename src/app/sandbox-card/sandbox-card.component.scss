@@ -1,3 +1,14 @@
-
-.app-sandbox-card { padding:12px; border-radius: 4px; font-size: 1.4em; opacity: .85; color:white; }
-.app-sandbox-card.selected { border: 4px solid black; }
+:host {
+    display: flex;
+    .app-sandbox-card {
+        flex: 1;
+        padding: 12px;
+        border-radius: 4px;
+        font-size: 1.4em;
+        opacity: 0.85;
+        color: white;
+    }
+    .app-sandbox-card.selected {
+        border: 4px solid black;
+    }
+}

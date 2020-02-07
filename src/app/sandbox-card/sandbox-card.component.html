@@ -2,11 +2,9 @@
      *ngIf="this.viewModel"
      fxLayout="row"
      fxLayoutAlign="center center"
-     [ngStyle]="{ 'background-color': this.backgroundColor(), 'width': this.viewModel.size, 'height': this.viewModel.size }"
+     [ngStyle]="{ 'background-color': this.backgroundColor() }"
      [ngClass]="{ 'selected': this.viewModel.selected }"
-     (click)="this.onSelect.emit(this.viewModel.index)"
-     [fxFlex]="this.viewModel.fxFlex">
-    <div>
-        {{ this.viewModel.index + 1 }}
-    </div>
+     (click)="this.onSelect.emit(this.viewModel.index)">
+     <!--[fxFlex]="this.viewModel.fxFlex"-->
+    <span>{{ this.viewModel.index + 1 }}</span>
 </div>
