@@ -1,4 +1,4 @@
-import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ElementRef, OnInit } from '@angular/core';
 import { SandboxCardViewModel } from '../shared/sandbox-card.model';
 
 @Component({
@@ -6,12 +6,24 @@ import { SandboxCardViewModel } from '../shared/sandbox-card.model';
     templateUrl: './sandbox-card.component.html',
     styleUrls: ['./sandbox-card.component.scss']
 })
-export class SandboxCardComponent {
+export class SandboxCardComponent implements OnInit {
+    
+    private _width : string;
+    public get width() : string { return this._width; }
+    @Input('width')
+    public set width(v : string) { this._width = v; this.elRef.nativeElement.style.width = v; }
 
+    private _height : string;
+    public get height() : string { return this._height; }
+    @Input('height')
+    public set height(v : string) { this._height = v; this.elRef.nativeElement.style.height = v; }
+    
     @Input() public viewModel: SandboxCardViewModel;
     @Output() public onSelect: EventEmitter<number> = new EventEmitter();
 
-    constructor() { }
+    constructor(private elRef:ElementRef) { }
+
+    ngOnInit() {}
 
     public backgroundColor(): string {
         switch (this.viewModel.index) {

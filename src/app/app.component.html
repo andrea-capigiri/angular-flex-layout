@@ -5,7 +5,7 @@
              fxLayoutAlign="space-between center"
              fxLayoutGap="12px">
             <mat-form-field fxFlex>
-                <mat-select placeholder="fxLayout" [(ngModel)]="this.fxLayout">
+                <mat-select placeholder="fxLayout" [(ngModel)]="this.fxLayout" (selectionChange)="this.fxLayoutChange()">
                     <mat-option value="row">row</mat-option>
                     <mat-option value="column">column</mat-option>
                 </mat-select>
@@ -29,7 +29,7 @@
                 </mat-select>
             </mat-form-field>
             <mat-form-field fxFlex>
-                <mat-select placeholder="Vertical align" [(ngModel)]="this.fxLayoutAlignVertical">
+                <mat-select placeholder="Vertical align" [(ngModel)]="this.fxLayoutAlignVertical" (selectionChange)="this.fxLayoutAlignVerticalChange()">
                     <mat-option value="">none</mat-option>
                     <mat-option value="start">start</mat-option>
                     <mat-option value="center">center</mat-option>
@@ -56,10 +56,14 @@
              [fxLayout]="this.fxLayoutValue()"
              [fxLayoutAlign]="this.fxLayoutAlignValue()"
              [fxLayoutGap]="this.fxLayoutGapValue()">
+
             <app-sandbox-card *ngFor="let $card of this.cardList"
+                              [width]="$card.width"
+                              [height]="$card.height"
                               [viewModel]="$card"
                               (onSelect)="this.onSelectCard($event)">
             </app-sandbox-card>
+
         </div>
 
         <!--<mat-card style="margin:24px 0;" *ngIf="this.card">

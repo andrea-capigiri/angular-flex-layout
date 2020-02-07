@@ -26,10 +26,20 @@ export class AppComponent implements OnInit {
     public fxLayoutAlignValue() { return (this.fxLayoutAlignHorizontal || '') + (this.fxLayoutAlignVertical ? ' ' + this.fxLayoutAlignVertical : ''); }
     public fxLayoutGapValue() { return (this.fxLayoutGap || 0) + 'px'; }
 
+    public fxLayoutChange() {
+        for(let item of this.cardList)
+            this.calcCardSizes(item);
+    }
+    public fxLayoutAlignVerticalChange() {
+        for(let item of this.cardList)
+            this.calcCardSizes(item);
+    }
+
     public addBox() {
         let tmp = new SandboxCardViewModel();
         tmp.index = this.cardList.length;
         tmp.size = Math.floor(Math.random() * 160) + 80;
+        this.calcCardSizes(tmp);
         this.cardList.push(tmp);
     }
     public removeBox() { this.cardList.pop(); }
@@ -40,5 +50,12 @@ export class AppComponent implements OnInit {
         for (let $item of this.cardList) {
             $item.selected = ($item.index == $event);
         }
+    }
+
+    private calcCardSizes(item: SandboxCardViewModel) {
+        item.width = `${item.size}px`;
+        item.height = `${item.size}px`;
+        if ((this.fxLayoutAlignVertical == 'stretch' || this.fxLayoutAlignVertical == '') && this.fxLayout == 'row') item.height = `initial`;
+        if ((this.fxLayoutAlignVertical == 'stretch' || this.fxLayoutAlignVertical == '') && this.fxLayout == 'column') item.width = `initial`;
     }
 }
