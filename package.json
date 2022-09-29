@@ -4,7 +4,6 @@
   "private": true,
   "scripts": {
     "start": "ng serve",
-    "start2": "ng serve --port 4220",
     "build": "ng build --configuration production"
   },
   "dependencies": {
