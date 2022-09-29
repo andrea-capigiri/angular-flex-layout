@@ -4,8 +4,8 @@ This simple application allows you to understand how the [Angular Flex Layout](h
 
 ## Libraries
 
-- "@angular/flex-layout": "11.0.0-beta.33"
-- "@angular/material": "11.0.0"
+- "@angular/flex-layout": "14.0.0-beta.40"
+- "@angular/material": "14.2.3"
 - & more...
 
 ## Commands
